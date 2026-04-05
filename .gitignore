@@ -1,1 +1,5 @@
 .sass-cache/
+research-notes/
+model_weights.bin
+model_meta.json
+node_modules/

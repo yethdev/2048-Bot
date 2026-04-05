@@ -2,13 +2,13 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>2048</title>
+  <title>2048 Bot</title>
 
   <link href="style/main.css" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
-  <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone 5+ -->
-  <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x920.png"  media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone, retina -->
+  <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
+  <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x920.png"  media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
@@ -29,6 +29,40 @@
     <div class="above-game">
       <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
       <a class="restart-button">New Game</a>
+    </div>
+
+    <div class="ai-controls">
+      <div class="controls-row">
+        <label>
+          AI:
+          <select class="ai-mode-select">
+            <option value="rl-server">RL (Server, Large Model)</option>
+            <option value="rl">RL (Browser, Small Model)</option>
+            <option value="legacy">Legacy (Expectimax)</option>
+          </select>
+        </label>
+        <a class="ai-btn ai-start-button">&#9654; Play</a>
+        <a class="ai-btn ai-stop-button">&#9632; Stop</a>
+        <label>
+          Speed:
+          <select class="ai-speed-select">
+            <option value="200">Slow</option>
+            <option value="100">Normal</option>
+            <option value="50" selected>Fast</option>
+            <option value="10">Turbo</option>
+            <option value="1">Instant</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="controls-row">
+        <label class="checkbox-label">
+          <input type="checkbox" class="max-rng-checkbox">
+          Max RNG (best tile placement for player)
+        </label>
+      </div>
+
+      <div class="ai-status"></div>
     </div>
 
     <div class="game-container">
@@ -94,6 +128,8 @@
   <script src="js/tile.js"></script>
   <script src="js/local_storage_manager.js"></script>
   <script src="js/game_manager.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/ntuple_ai.js"></script>
   <script src="js/application.js"></script>
 </body>
 </html>
